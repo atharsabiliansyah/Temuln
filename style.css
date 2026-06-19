@@ -177,3 +177,98 @@ body {
     text-decoration: underline;
     font-weight: bold;
 }
+
+/* =========================================
+   GAYA KHUSUS LUPA KATA SANDI & OTP
+   ========================================= */
+
+/* Animasi Pergantian Tahap */
+.step-section {
+    display: none; /* Sembunyikan semua step secara default */
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.step-section.aktif {
+    display: block; /* Munculkan hanya yang punya class aktif */
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Desain Kotak OTP */
+.otp-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.otp-input {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    color: #0b132b;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.otp-input:focus {
+    border-color: #0b132b;
+    box-shadow: 0 0 0 2px rgba(11, 19, 43, 0.1);
+}
+
+/* Modal Sukses (Layar Gelap Blur) */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    display: none; /* Disembunyikan dulu */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.aktif {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-card {
+    background: white;
+    padding: 35px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- PESAN ERROR VALIDASI EMAIL --- */
+.error-text {
+    color: #e53e3e; /* Warna merah */
+    font-size: 0.75rem;
+    margin-top: 6px;
+    display: none; /* Disembunyikan secara default */
+    font-weight: 600;
+}
+
+/* Kelas ini ditambahkan JS untuk mengubah border input jadi merah */
+.input-error {
+    border-color: #e53e3e !important;
+}
+
+.input-error:focus {
+    box-shadow: 0 0 0 2px rgba(229, 62, 62, 0.2) !important;
+}
