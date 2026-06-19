@@ -1,4 +1,4 @@
-/* Reset Dasar */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f8f9fa; /* Disamakan dengan background login agar transisinya mulus */
+    background-color: #f8f9fa; 
     padding: 20px;
 }
 

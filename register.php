@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registrasi - TemuIn</title>
     <link rel="stylesheet" href="style.css?v=<?php echo time(); ?>">
-
-
 </head>
 <body>
 
@@ -23,7 +16,7 @@
             <form id="form-register" action="proses_register.php" method="POST">
                 
                 <div class="input-group">
-                    <label for="nim">NIM (Nomor Induk Mahasiswa)</label>
+                    <label for="nim">Nomor Induk Mahasiswa</label>
                     <input type="text" id="nim" name="nim" placeholder="Contoh: 241011402064" required>
                 </div>
 

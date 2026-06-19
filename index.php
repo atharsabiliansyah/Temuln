@@ -1,3 +1,27 @@
+<?php
+session_start();
+require 'koneksi.php';
+
+
+if (isset($_POST['login'])) {
+    $email = mysqli_real_escape_string($conn, $_POST['nim_email']);
+    $password = $_POST['password'];
+
+    $result = mysqli_query($conn, "SELECT * FROM pengguna WHERE email = '$email'");
+
+    if (mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        
+        if ($password == $row['password']) {
+            $_SESSION['login'] = true;
+            header("Location: dashboard.php"); 
+            exit;
+        }
+    }
+    $error = true;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -34,7 +58,7 @@
                 </div>
 
                 <div class="lupa-sandi">
-                    <a href="#">Lupa Kata Sandi?</a>
+                    <a href="lupa_sandi.php">Lupa Kata Sandi?</a>
                 </div>
 
                 <button type="button" id="btn-masuk" class="btn-submit" disabled>Masuk</button>
