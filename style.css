@@ -1,0 +1,179 @@
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f9fa; /* Disamakan dengan background login agar transisinya mulus */
+    padding: 20px;
+}
+
+/* =========================================
+   EFEK TRANSISI SPLASH SCREEN KE LOGIN
+   ========================================= */
+
+.splash-screen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Transisi memudar ke transparan */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.login-section {
+    width: 100%;
+    max-width: 400px;
+    display: none; /* Disembunyikan dulu oleh CSS, akan dimunculkan JS */
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.8s ease-in, transform 0.8s ease-out;
+}
+
+/* =========================================
+   UKURAN CUSTOM LOGO & TEKS (DARI KAMU)
+   ========================================= */
+
+.logo-wrapper {
+    position: relative;
+    width: 600px; 
+    height: 300px; 
+    margin-bottom: 30px; 
+}
+
+.gambar-tangan {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 185px; /* Custom size kamu */
+    z-index: 1;
+}
+
+.animasi-box {
+    position: absolute;
+    bottom: 75px; /* Custom size kamu */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px; /* Custom size kamu */
+    z-index: 2;
+    animation: lemparBox 1.0s infinite ease-in-out;
+}
+
+@keyframes lemparBox {
+    0% { transform: translate(-50%, 0px) rotate(0deg); }
+    50% { transform: translate(-50%, -60px) rotate(15deg); }
+    100% { transform: translate(-50%, 0px) rotate(0deg); }
+}
+
+.judul {
+    color: #0b132b;
+    font-size: 2.8rem; 
+    font-weight: 1000; /* Custom size kamu */
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.tagline {
+    color: #8d99ae;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* =========================================
+   GAYA KHUSUS HALAMAN LOGIN
+   ========================================= */
+
+.login-card {
+    background-color: #ffffff;
+    border: 1px solid #4a5568;
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    color: #0b132b;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4a5568;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #0b132b;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #0b132b;
+    box-shadow: 0 0 0 2px rgba(11, 19, 43, 0.1);
+}
+
+.lupa-sandi {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.lupa-sandi a {
+    color: #4a5568;
+    font-size: 0.75rem;
+    text-decoration: underline;
+}
+
+/* --- ANIMASI TOMBOL MASUK --- */
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #cccccc; 
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: not-allowed;
+    transition: background-color 0.4s ease, transform 0.2s ease; 
+}
+
+/* Kelas ini akan disuntikkan oleh JavaScript saat form terisi */
+.btn-submit.aktif {
+    background-color: #0b132b; 
+    cursor: pointer;
+}
+
+.btn-submit.aktif:hover {
+    background-color: #1c2541; 
+    transform: scale(1.02); /* Sedikit pop-up saat di-hover */
+}
+
+.daftar-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #4a5568;
+}
+
+.daftar-link a {
+    color: #4a5568;
+    text-decoration: underline;
+    font-weight: bold;
+}
